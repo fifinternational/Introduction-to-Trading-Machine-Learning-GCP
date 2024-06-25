@@ -1,4 +1,4 @@
-# {{Building a Regression Model in BigQuery for AAPL Stock Data}}
+# Building a Regression Model in BigQuery for AAPL Stock Data
 
 This project demonstrates how to build a regression model in Google BigQuery to predict the closing price of AAPL (Apple Inc.) stock. We will use historical stock data, preprocess it, and train a machine learning model using BigQuery ML.
 
@@ -83,6 +83,7 @@ SELECT
   *
 FROM 
   ml_data;
+```
 
 ## Building the Regression Model
 ## SQL Query to Create the Model
@@ -110,7 +111,7 @@ SELECT
   *
 FROM
   ML.EVALUATE(MODEL `your_project_id.stock_data.aapl_model`);
-
+```
 
 ## Making Predictions
 ## SQL Query to Make Predictions
@@ -128,15 +129,16 @@ FROM
       date >= '2019-01-01'
     )
   );
+```
 
 ## Conclusion
-In this project, we demonstrated how to build, train, evaluate, and use a regression model in BigQuery to predict AAPL stock closing prices. By leveraging BigQuery ML, we can seamlessly integrate machine learning capabilities into our SQL workflows, enabling efficient and scalable data analysis and prediction.
+{{In this project, we demonstrated how to build, train, evaluate, and use a regression model in BigQuery to predict AAPL stock closing prices. By leveraging BigQuery ML, we can seamlessly integrate machine learning capabilities into our SQL workflows, enabling efficient and scalable data analysis and prediction.}}
 
 ## Repository Structure
-`README.md`: This file, containing the project overview and instructions.
+{{`README.md`: This file, containing the project overview and instructions.
 `sql/`: Directory containing SQL scripts used in this project.
 `data_preparation.sql`: SQL script for data preparation.
 `create_model.sql`: SQL script to create the regression model.
 `evaluate_model.sql`: SQL script to evaluate the model.
-`make_predictions.sql`: SQL script to make predictions.
+`make_predictions.sql`: SQL script to make predictions.}}
 
