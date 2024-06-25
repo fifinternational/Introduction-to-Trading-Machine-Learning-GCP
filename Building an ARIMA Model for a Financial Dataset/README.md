@@ -1,4 +1,4 @@
-##Overview
+## Overview
 In this lab, you will build an ARIMA model for AAPL stock closing prices using the statsmodels library in Python.
 
 Objectives
@@ -12,7 +12,7 @@ Apply the Dickey-Fuller test
 
 Build an ARIMA model using the statsmodels library
 
-##Clone Course Repo within your AI Platform Notebooks Instance
+## Clone Course Repo within your AI Platform Notebooks Instance
 To clone the training-data-analyst notebook in your JupyterLab instance:
 
 In JupyterLab, to open a new terminal, click the Terminal icon.
