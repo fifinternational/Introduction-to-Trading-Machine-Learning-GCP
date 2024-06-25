@@ -2,20 +2,6 @@
 
 This project demonstrates how to build a regression model in Google BigQuery to predict the closing price of AAPL (Apple Inc.) stock. We will use historical stock data, preprocess it, and train a machine learning model using BigQuery ML.
 
-## Table of Contents
-
-1. [Introduction](#introduction)
-2. [Setup and Requirements](#setup-and-requirements)
-3. [Data Preparation](#data-preparation)
-4. [Building the Regression Model](#building-the-regression-model)
-5. [Evaluating the Model](#evaluating-the-model)
-6. [Making Predictions](#making-predictions)
-7. [Conclusion](#conclusion)
-
-## Introduction
-
-{{INTRODUCTION_TEXT}}
-
 ## Setup and Requirements
 
 ### Prerequisites
