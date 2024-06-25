@@ -131,6 +131,9 @@ FROM
   );
 ```
 
+## Data Sources
+cloud-training/ai4f/AAPL10Y.csv
+
 ## Conclusion
 {{In this project, we demonstrated how to build, train, evaluate, and use a regression model in BigQuery to predict AAPL stock closing prices. By leveraging BigQuery ML, we can seamlessly integrate machine learning capabilities into our SQL workflows, enabling efficient and scalable data analysis and prediction.}}
 
