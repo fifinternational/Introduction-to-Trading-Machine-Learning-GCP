@@ -1,0 +1,2 @@
+mean_absolute_error,mean_squared_error,mean_squared_log_error,median_absolute_error,r2_score,explained_variance
+0.65335546992357552,0.73636156177660383,0.05216607535798224,0.5212922266313722,0.32841175494436314,0.32841472627669144
