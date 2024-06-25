@@ -49,14 +49,13 @@ The data was then loaded with these commands:
 ```
 
 ```sh
-Copy code
 bq load --source_format=CSV \
  --location=EU \
  --autodetect movies.movielens_ratings \
  gs://dataeng-movielens/ratings.csv
+```
 
 ```sh
-Copy code
 bq load --source_format=CSV \
  --location=EU \
  --autodetect movies.movielens_movies_raw \
@@ -69,8 +68,7 @@ The MovieLens dataset was explored and verified using the Query editor.
 Count Users, Movies, and Ratings
 In BigQuery's Query editor, the following query was executed:
 
-sql
-Copy code
+```sql
 SELECT
   COUNT(DISTINCT userId) numUsers,
   COUNT(DISTINCT movieId) numMovies,
@@ -78,11 +76,11 @@ SELECT
 FROM
   movies.movielens_ratings
 The dataset consists of over 138 thousand users, nearly 27 thousand movies, and a little more than 20 million ratings.
-
+```
 Examine the First Few Movies
 The following query was executed:
 
-sql
+```sql
 Copy code
 SELECT
   *
@@ -91,30 +89,31 @@ FROM
 WHERE
   movieId < 5
 The genres column was parsed into an array and the results were rewritten into a table named movielens_movies:
+```
 
-sql
-Copy code
+```sql
 CREATE OR REPLACE TABLE
   movies.movielens_movies AS
 SELECT
   * REPLACE(SPLIT(genres, "|") AS genres)
 FROM
   movies.movielens_movies_raw
-Task 3: Evaluate a Trained Model Created Using Collaborative Filtering
+```
+###Task 3: Evaluate a Trained Model Created Using Collaborative Filtering
 Metrics for a trained model generated using matrix factorization were viewed. A model had been created in the Cloud Training project's cloud-training-prod-bucket BigQuery dataset for use in the rest of the lab.
 
 To view metrics for the trained model, the following query was run:
 
-sql
+```sql
 Copy code
 SELECT * FROM ML.EVALUATE(MODEL `cloud-training-prod-bucket.movies.movie_recommender`)
 Task 4: Make Recommendations
 The trained model was used to provide recommendations.
-
+````
 Recommend Comedy Movies for User 903
 The following query was executed to find the best comedy movies to recommend to the user whose userId is 903:
 
-sql
+```sql
 Copy code
 SELECT
   *
@@ -134,10 +133,10 @@ ORDER BY
   predicted_rating DESC
 LIMIT
   5
+```
 This result included movies the user had already seen and rated in the past. To remove them, the following query was used:
 
-sql
-Copy code
+```sql
 SELECT
   *
 FROM
@@ -166,14 +165,15 @@ ORDER BY
   predicted_rating DESC
 LIMIT
   5
-Task 5: Apply Customer Targeting
+```
+
+###Task 5: Apply Customer Targeting
 The top-rated movies for a specific user were identified.
 
 Identify Users Likely to Rate a Movie Highly
 To identify users who are likely to rate movieId=96481 highly, the following query was used:
 
-sql
-Copy code
+```sql
 SELECT
   *
 FROM
@@ -201,17 +201,18 @@ ORDER BY
   predicted_rating DESC
 LIMIT
   100
-Task 6: Perform Batch Predictions for All Users and Movies
+```
+###Task 6: Perform Batch Predictions for All Users and Movies
 A query was performed to obtain batch predictions for users and movies.
 
 Obtain Batch Predictions
 The following query was entered to obtain batch predictions:
 
-sql
-Copy code
+```sql
 SELECT
   *
 FROM
   ML.RECOMMEND(MODEL `cloud-training-prod-bucket.movies.movie_recommender`)
 LIMIT
   100000
+```
